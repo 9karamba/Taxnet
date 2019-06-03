@@ -1,0 +1,127 @@
+/*         Используемые цвета                           */
+$star-color: #FF9800;
+$bg-color: #fff;
+$text-color: #797979;
+$border-color: #ddd;
+$activ-color: #cecbcb;
+$notactiv-button: #f1f1f1;
+
+%type-button {
+	display: block;
+	margin: 0 0 -1px;
+	padding: 15px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: $text-color;
+	border: 1px solid $border-color;
+	background: $notactiv-button;
+	border-radius: 3px;
+}
+%hover-checked {
+	color: #888;
+	border-bottom: 1px solid $border-color;
+	background: $bg-color;
+}
+
+.tabs {
+	min-width: 320px;
+	max-width: 800px;
+	padding: 0px;
+	margin: 0 auto;
+	
+	input {
+		display: none;
+		position: absolute;
+		&:checked+label {
+			@extend %hover-checked;
+		}
+	}
+	label {
+		@extend %type-button;
+		display: inline-block;
+		border-radius: 3px 3px 0 0;
+		&:hover {
+			color: $activ-color;
+			cursor: pointer;
+		}
+	}
+/*      Стилизация секций                           */
+	#tab1:checked~#content-tab1, #tab2:checked~#content-tab2{
+		display: block;
+	}
+	section{
+		display: none;
+		padding: 15px;
+		background: $bg-color;
+		border: 1px solid $border-color;
+		#search-form{
+			display: block;
+		    position: inherit;
+		    width: calc(100% - 10px);
+		    margin-right: 10px;
+		    margin-bottom: 10px;
+		    padding: 5px 0 5px 10px;
+		    outline-color: $text-color;
+		}
+/*      Стилизация тегов                           */
+		.tags{
+			display: inline-block;
+			position: relative;
+			label{
+				margin: 0 1px 5px;
+				padding: 5px 15px;
+				color: $text-color;
+				border-radius: 3px;
+			}
+			input{
+				&:checked+label {
+					@extend %hover-checked;
+				}
+			}
+		}
+/*      Стилизация фильмов                           */
+		.films{
+			position: relative;
+			width: 100%;
+			margin: 0 1px 5px;
+			color: $text-color;
+			border-radius: 3px;
+			label{
+				padding: 10px;
+			    width: 90%;
+			    text-align: left;
+				@extend %hover-checked;
+
+			    &::after {
+			    	position: absolute;
+				    top: 0;
+				    right: 0;
+				    font-family: fontawesome;
+				    font-weight: normal;
+				    content: "\f005";
+				    border: 1px solid $border-color;
+				    padding: 10px 15px 12px;
+				}
+			}
+			input{
+				&:checked+label {
+					&::after {
+						color: $star-color;
+					}
+				}
+			}
+			
+		}
+/*             Кнопка "показать еще"                       */
+		button{
+			@extend %type-button;
+		    width: 100%;
+		    margin-top: 10px;
+		    outline: $text-color;
+		    &:hover{
+		    	background: $activ-color;
+				cursor: pointer;
+		    }
+		}
+	}
+}

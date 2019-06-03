@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Project about films</title>
+	<link rel='stylesheet' href='dist/style.css'>
+</head>
+<body>
+	
+	<div class="tabs">
+		
+		<input id="tab1" type="radio" name="tabs" onchange="getFilms()" checked>
+	    <label for="tab1" title="Вкладка 1">Фильмы</label>
+	 
+	    <input id="tab2" type="radio" name="tabs" onchange="getBookmarks()">
+	    <label for="tab2" title="Вкладка 2">Закладки</label>
+	 
+	    <section id="content-tab1">
+
+	    	<input id="search-form" type="text" oninput="getFilms()">
+
+	    	<div id="tags">
+	        </div>
+
+	        <div id="films">
+	        </div>
+
+	        <button id="show-more1" onclick="getFilms(false)">Показать еще</button>
+
+	    </section>  
+
+	    <section id="content-tab2">
+	        
+			<div id="bookmarks">
+	        </div>
+
+	        <button id="show-more2" onclick="getBookmarks(false)">Показать еще</button>
+
+	    </section> 
+
+	</div>
+
+	<script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+</html>

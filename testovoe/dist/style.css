@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/*         Используемые цвета                           */
+.tabs label, .tabs section button {
+  display: block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #797979;
+  border: 1px solid #ddd;
+  background: #f1f1f1;
+  border-radius: 3px; }
+
+.tabs input:checked + label, .tabs section .tags input:checked + label, .tabs section .films label {
+  color: #888;
+  border-bottom: 1px solid #ddd;
+  background: #fff; }
+
+.tabs {
+  min-width: 320px;
+  max-width: 800px;
+  padding: 0px;
+  margin: 0 auto;
+  /*      Стилизация секций                           */ }
+  .tabs input {
+    display: none;
+    position: absolute; }
+  .tabs label {
+    display: inline-block;
+    border-radius: 3px 3px 0 0; }
+    .tabs label:hover {
+      color: #cecbcb;
+      cursor: pointer; }
+  .tabs #tab1:checked ~ #content-tab1, .tabs #tab2:checked ~ #content-tab2 {
+    display: block; }
+  .tabs section {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    /*      Стилизация тегов                           */
+    /*      Стилизация фильмов                           */
+    /*             Кнопка "показать еще"                       */ }
+    .tabs section #search-form {
+      display: block;
+      position: inherit;
+      width: calc(100% - 10px);
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 5px 0 5px 10px;
+      outline-color: #797979; }
+    .tabs section .tags {
+      display: inline-block;
+      position: relative; }
+      .tabs section .tags label {
+        margin: 0 1px 5px;
+        padding: 5px 15px;
+        color: #797979;
+        border-radius: 3px; }
+    .tabs section .films {
+      position: relative;
+      width: 100%;
+      margin: 0 1px 5px;
+      color: #797979;
+      border-radius: 3px; }
+      .tabs section .films label {
+        padding: 10px;
+        width: 90%;
+        text-align: left; }
+        .tabs section .films label::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-family: fontawesome;
+          font-weight: normal;
+          content: "\f005";
+          border: 1px solid #ddd;
+          padding: 10px 15px 12px; }
+      .tabs section .films input:checked + label::after {
+        color: #FF9800; }
+    .tabs section button {
+      width: 100%;
+      margin-top: 10px;
+      outline: #797979; }
+      .tabs section button:hover {
+        background: #cecbcb;
+        cursor: pointer; }
